@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-listagem-mural',
@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./listagem-mural.component.css']
 })
 export class ListagemMuralComponent implements OnInit {
-
+  @Input() isMuralLinha : Boolean
+  
   constructor() { }
 
   ngOnInit() {

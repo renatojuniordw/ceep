@@ -1,6 +1,5 @@
 .opcoesDaPagina {
-	display: inline-block;
-	vertical-align: middle;
+	display: flex;
 	font-size: 1rem;
 	flex: 1;
 	text-align: right;

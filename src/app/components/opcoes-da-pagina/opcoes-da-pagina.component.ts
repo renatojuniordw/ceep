@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Component, OnInit, Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-opcoes-da-pagina',
@@ -8,7 +10,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class OpcoesDaPaginaComponent implements OnInit {
 
+  textoMudaLayout = "Linhas";
   httpClient: HttpClient
+  @Input() onClickBtnMudaLayout
 
   ajudas: Array<Object> = [{
 
@@ -29,6 +33,13 @@ export class OpcoesDaPaginaComponent implements OnInit {
       .subscribe((item: Object) => {
         this.ajudas = item.instrucoes
       })
+  }
+  mudaTexto() {
+    if (this.textoMudaLayout == 'Blocos') {
+      this.textoMudaLayout = 'Linhas'
+    } else {
+      this.textoMudaLayout = 'Blocos'
+    }
   }
 
 }

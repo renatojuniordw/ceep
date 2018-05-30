@@ -7,8 +7,8 @@
 
 <div class="opcoesDaPagina">
   <input type="search" placeholder="Busca" id="busca" class="opcoesDaPagina-opcao">
-  <button id="btnMudaLayout" class="opcoesDaPagina-opcao opcoesDaPagina-botao">
-    Linhas
+  <button id="btnMudaLayout" (click)="mudaTexto()" (click)="onClickBtnMudaLayout()" class="opcoesDaPagina-opcao opcoesDaPagina-botao">
+    {{textoMudaLayout}}
   </button>
   <!-- <button id="btnAjuda" class="opcoesDaPagina-opcao opcoesDaPagina-botao">
     ?
