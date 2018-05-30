@@ -7,4 +7,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'app';
+  isMuralLinhaAtiva = false;
+
+  mudaLayout = () => {
+    this.isMuralLinhaAtiva = !this.isMuralLinhaAtiva
+  
+  }
 }
+
+
