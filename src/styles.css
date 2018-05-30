@@ -1,1 +1,9 @@
-/* You can add global styles to this file, and also import other style files */
+@import  "src/assets/css/reset.css";
+@import  "src/assets/css/container.css";
+@import  "src/assets/css/opcoesDaPagina.css";
+@import  "src/assets/css/opcoesDoCartao.css";
+@import  "src/assets/css/botaoSync.css";
+@import  "src/assets/css/mural.css";
+@import  "src/assets/css/cabecalho.css";
+@import  "src/assets/css/cartao.css";
+@import  "src/assets/css/formNovoCartao.css";
