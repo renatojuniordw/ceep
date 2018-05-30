@@ -1,13 +1,12 @@
-import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
-
 
 @Component({
   selector: 'app-opcoes-da-pagina',
   templateUrl: './opcoes-da-pagina.component.html',
   styleUrls: ['./opcoes-da-pagina.component.css']
 })
+
 export class OpcoesDaPaginaComponent implements OnInit {
 
   textoMudaLayout = "Linhas";
@@ -34,6 +33,7 @@ export class OpcoesDaPaginaComponent implements OnInit {
         this.ajudas = item.instrucoes
       })
   }
+  
   mudaTexto() {
     if (this.textoMudaLayout == 'Blocos') {
       this.textoMudaLayout = 'Linhas'
