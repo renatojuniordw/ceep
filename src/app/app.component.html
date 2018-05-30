@@ -1,13 +1,12 @@
-<header class="cabecalho container">
-    <h1 class="cabecalho-logo">
-        Ceep
-    </h1>
-    <app-opcoes-da-pagina></app-opcoes-da-pagina>
+<header class="header-cabecalho container-fluid p-3">
+    <div class="container cabecalho">
+        <h1 class="cabecalho-logo">
+            Ceep
+        </h1>
+        <app-opcoes-da-pagina [onClickBtnMudaLayout] ="mudaLayout"></app-opcoes-da-pagina>
+        <!-- [] "funcao"-->
+    </div>
+
 </header>
 <app-form-novo-cartao></app-form-novo-cartao>
-<app-listagem-mural></app-listagem-mural>
-
-<!-- for test -->
-<!-- <div class="col-lg-2 mx-auto centered">
-  <app-opcoes-do-cartao></app-opcoes-do-cartao>
-</div> -->
+<app-listagem-mural [isMuralLinha]="isMuralLinhaAtiva"></app-listagem-mural>

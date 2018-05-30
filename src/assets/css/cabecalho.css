@@ -1,9 +1,11 @@
-.cabecalho {
+.header-cabecalho {
 	background-color: #0082C7;
 	font-size: 1rem;
 	padding-top: .5em;
 	padding-bottom: .5em;
 	text-align: center;
+}
+.cabecalho{
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
