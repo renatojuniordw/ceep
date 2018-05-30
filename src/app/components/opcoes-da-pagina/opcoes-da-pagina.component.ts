@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-opcoes-da-pagina',
@@ -7,9 +8,27 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OpcoesDaPaginaComponent implements OnInit {
 
-  constructor() { }
+  httpClient: HttpClient
+
+  ajudas: Array<Object> = [{
+
+  }]
+
+  constructor(private http: HttpClient) {
+    this.httpClient = http
+    this.carregarAjudas()
+  }
 
   ngOnInit() {
+  
+  }
+
+  carregarAjudas() {
+    this.httpClient
+      .get('http://ceep.herokuapp.com/cartoes/instrucoes')
+      .subscribe((item: Object) => {
+        this.ajudas = item.instrucoes
+      })
   }
 
 }
