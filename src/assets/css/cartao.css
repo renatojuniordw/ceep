@@ -64,6 +64,7 @@
 		text-align: left;
 		box-sizing: border-box;
 		vertical-align: top;
+		min-width: 300px;
 		max-width: 377px;
 	}
 

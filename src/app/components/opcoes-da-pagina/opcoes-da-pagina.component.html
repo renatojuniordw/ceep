@@ -6,32 +6,29 @@
 </svg>
 
 <div class="opcoesDaPagina">
-    <div class="d-flex">
-  <input type="search" placeholder="Busca" id="busca" class="opcoesDaPagina-opcao">
-</div> 
+  <div class="d-flex">
+    <input type="search" placeholder="Busca" id="busca" class="opcoesDaPagina-opcao">
+  </div>
 
   <div class="d-flex">
     <button id="btnMudaLayout" (click)="mudaTexto()" (click)="onClickBtnMudaLayout()" class="opcoesDaPagina-opcao opcoesDaPagina-botao">
       <!-- {{textoMudaLayout}} -->
-
-
       <i class="fas {{textoMudaLayout}}" id="icone"></i>
-      <!-- <i class="fas fa-headphones"></i>
-      <i class="fas fa-list-ul"></i>
-      <i class="fas fa-headphones"></i> -->
-      
-     
     </button>
     <!-- <button id="btnAjuda" class="opcoesDaPagina-opcao opcoesDaPagina-botao">
     ?
-  </button> -->
+    </button> -->
 
-    <div class="dropdown  ml-3">
-      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+
+    <div class="btn-group  ml-3">
+      <button type="button" class="btn btn-secondary" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
         ?
       </button>
-      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <a class="dropdown-item" href="#" *ngFor="let ajuda of ajudas">{{ ajuda.conteudo }}</a>
+      <div class="dropdown-menu dropdown-menu-right">
+        <ul>
+          <li class="dropdown-item" *ngFor="let ajuda of ajudas">{{ ajuda.conteudo }}</li>
+        </ul>
+
       </div>
     </div>
 
