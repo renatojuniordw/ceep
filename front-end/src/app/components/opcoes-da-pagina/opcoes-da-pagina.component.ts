@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { AllService } from '../../services/all.service';
 
 @Component({
   selector: 'app-opcoes-da-pagina',
@@ -18,7 +19,7 @@ export class OpcoesDaPaginaComponent implements OnInit {
   httpClient: HttpClient
   ajudas: Array<Object> = [{}]
 
-  constructor(http: HttpClient) {
+  constructor(private http: HttpClient, private serviceAll: AllService) {
     this.httpClient = http;
     this.carregarAjudas();
   }
@@ -27,12 +28,14 @@ export class OpcoesDaPaginaComponent implements OnInit {
   }
 
   carregarAjudas() {
-    this.httpClient
-      .get('http://ceep.herokuapp.com/cartoes/instrucoes')
+    // this.httpClient
+    //   .get('http://ceep.herokuapp.com/cartoes/instrucoes')
+    this.serviceAll.getAjuda()
       .subscribe((item: Object) => {
         this.ajudas = item.instrucoes;
       });
   }
+  
   mudaTexto() {
     if (document.querySelector('#icone').classList.contains(this.iconLinha.toString())) {
       this.textoMudaLayout = this.iconBloco.toString()

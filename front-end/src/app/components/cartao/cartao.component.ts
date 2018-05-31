@@ -5,7 +5,7 @@ import { Component, Input } from '@angular/core';
   templateUrl: './cartao.component.html'
 })
 export class CartaoComponent {
-  id = '';
-  corCartao = '';
+  _id = '';
+  cor = '#EBEF40';
   @Input() conteudo;
 }

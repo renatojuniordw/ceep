@@ -9,6 +9,7 @@ import { ListagemMuralComponent } from './components/listagem-mural/listagem-mur
 import { OpcoesDoCartaoComponent } from './components/opcoes-do-cartao/opcoes-do-cartao.component';
 import { CartaoComponent } from './components/cartao/cartao.component';
 import { NgxPopper } from 'angular-popper';
+import { AllService} from './services/all.service'
 
 
 @NgModule({
