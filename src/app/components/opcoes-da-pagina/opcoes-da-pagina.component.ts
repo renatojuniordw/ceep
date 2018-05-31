@@ -16,6 +16,8 @@ export class OpcoesDaPaginaComponent implements OnInit {
   iconBloco: String = "fa-th"
   textoMudaLayout = this.iconLinha
 
+  termoBusca;
+
   httpClient: HttpClient
   ajudas: Array<Object> = [{}]
 
@@ -28,8 +30,6 @@ export class OpcoesDaPaginaComponent implements OnInit {
   }
 
   carregarAjudas() {
-    // this.httpClient
-    //   .get('http://ceep.herokuapp.com/cartoes/instrucoes')
     this.serviceAll.getAjuda()
       .subscribe((item: Object) => {
         this.ajudas = item.instrucoes;
