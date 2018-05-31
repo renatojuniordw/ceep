@@ -1,4 +1,7 @@
+import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
+
 
 @Component({
   selector: 'app-opcoes-da-pagina',
@@ -8,16 +11,29 @@ import { Component, OnInit, Input } from '@angular/core';
 export class OpcoesDaPaginaComponent implements OnInit {
 
   textoMudaLayout = "Linhas";
+  httpClient: HttpClient
   @Input() onClickBtnMudaLayout
 
-  constructor() {
+  ajudas: Array<Object> = [{
 
+  }]
+
+  constructor(private http: HttpClient) {
+    this.httpClient = http
+    this.carregarAjudas()
   }
 
   ngOnInit() {
-
+  
   }
 
+  carregarAjudas() {
+    this.httpClient
+      .get('http://ceep.herokuapp.com/cartoes/instrucoes')
+      .subscribe((item: Object) => {
+        this.ajudas = item.instrucoes
+      })
+  }
   mudaTexto() {
     if (this.textoMudaLayout == 'Blocos') {
       this.textoMudaLayout = 'Linhas'
