@@ -23,6 +23,7 @@
 	width: 100%;
 	min-height: 50px;
 	transition: height .1s linear;
+	border-radius: 2px;
 	}
 
 .formNovoCartao-conteudo:focus {
@@ -35,9 +36,10 @@
 	display: block;
 	margin: 1em auto 0;
 	padding: .35em 1em;
-	background:#e7e7e7;
+	background:#fff;
 	color: #ff7900;
 	text-transform: uppercase;
+	border-radius:2px;
 }
 
 .formNovoCartao-msg {

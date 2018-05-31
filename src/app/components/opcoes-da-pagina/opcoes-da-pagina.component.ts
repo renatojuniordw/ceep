@@ -32,7 +32,7 @@ export class OpcoesDaPaginaComponent implements OnInit {
     //   .get('http://ceep.herokuapp.com/cartoes/instrucoes')
     this.serviceAll.getAjuda()
       .subscribe((item: Object) => {
-        this.ajudas = item.instrucoes;
+     this.ajudas = item.instrucoes;
       });
   }
   
