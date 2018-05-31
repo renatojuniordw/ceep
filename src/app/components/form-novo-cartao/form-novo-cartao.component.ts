@@ -15,12 +15,12 @@ export class FormNovoCartaoComponent implements OnInit {
     cor: '#EBEF40',
     conteudo: ''
   };
-
+  
   infosDoMural = {
     cartoes: this.cartao,
     usuario: "cmpm"
   }
-
+  
   httpOptions = {
     headers: ({
       'Content-Type': 'application/json; charset=UTF-8'
