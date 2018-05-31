@@ -19,8 +19,8 @@ export class OpcoesDoCartaoComponent implements OnInit {
   }
 
   mudaCor(cartao) {
-    console.log(cartao)
-    this.cartao.backgroundColor = this.corAtual;
+    console.log(cartao);
+    // this.cartao.style.backgroundColor = this.corAtual;
   }
 
   remove(cartao) {

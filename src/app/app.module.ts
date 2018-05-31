@@ -1,8 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import {NgbModule} from '@ng-bootstrap/ng-bootstrap';
-import { HttpClientModule } from '@angular/common/http';
-import{ FormsModule } from '@angular/forms';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { OpcoesDaPaginaComponent } from './components/opcoes-da-pagina/opcoes-da-pagina.component';
 import { FormNovoCartaoComponent } from './components/form-novo-cartao/form-novo-cartao.component';
@@ -24,6 +23,7 @@ import { NgxPopper } from 'angular-popper';
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
+    HttpClientJsonpModule,
     HttpClientModule,
     NgxPopper
   ],
