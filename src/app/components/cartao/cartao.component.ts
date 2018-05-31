@@ -1,17 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input } from '@angular/core';
 
 @Component({
   selector: 'app-cartao',
-  templateUrl: './cartao.component.html',
-  styleUrls: ['./cartao.component.css']
+  templateUrl: './cartao.component.html'
 })
-export class CartaoComponent implements OnInit {
-  backgroundColor: String;
-
-  constructor() { }
-
-  ngOnInit() {
-    console.log(this.backgroundColor)
-  }
-
+export class CartaoComponent {
+  id = '';
+  corCartao = '';
+  @Input() conteudo;
 }

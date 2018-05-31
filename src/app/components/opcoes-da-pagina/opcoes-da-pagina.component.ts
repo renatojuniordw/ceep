@@ -1,5 +1,6 @@
-import { HttpClient } from '@angular/common/http';
+
 import { Component, OnInit, Input } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 
 @Component({
   selector: 'app-opcoes-da-pagina',
@@ -8,38 +9,31 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 
 export class OpcoesDaPaginaComponent implements OnInit {
+  http: HttpClient;
+  textoMudaLayout = 'Linhas';
+  @Input() onClickBtnMudaLayout;
 
-  textoMudaLayout = "Linhas";
-  httpClient: HttpClient
-  @Input() onClickBtnMudaLayout
+  ajudas: Array<Object> = [];
 
-  ajudas: Array<Object> = [{
-
-  }]
-
-  constructor(private http: HttpClient) {
-    this.httpClient = http
-    this.carregarAjudas()
+  constructor(http: HttpClient) {
+    this.http = http;
+    this.carregarAjudas();
   }
 
   ngOnInit() {
-  
   }
 
   carregarAjudas() {
-    this.httpClient
+    this.http
       .get('http://ceep.herokuapp.com/cartoes/instrucoes')
       .subscribe((item: Object) => {
-        this.ajudas = item.instrucoes
-      })
-  }
-  
-  mudaTexto() {
-    if (this.textoMudaLayout == 'Blocos') {
-      this.textoMudaLayout = 'Linhas'
-    } else {
-      this.textoMudaLayout = 'Blocos'
-    }
+        this.ajudas = item.instrucoes;
+      });
   }
 
+  mudaTexto() {
+    return this.textoMudaLayout === 'Blocos'
+      ? this.textoMudaLayout = 'Linhas'
+      : this.textoMudaLayout = 'Blocos';
+  }
 }
