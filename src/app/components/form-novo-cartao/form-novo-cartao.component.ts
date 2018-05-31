@@ -8,24 +8,22 @@ import { CartaoComponent } from '../cartao/cartao.component';
 })
 export class FormNovoCartaoComponent implements OnInit {
 
-  http: HttpClient;
+  http: HttpClient
 
   cartao: CartaoComponent = {
-    id: '',
-    conteudo: '',
-    corCartao: ''
+    _id: '',
+    cor: '#EBEF40',
+    conteudo: ''
   };
-
+  
   infosDoMural = {
     cartoes: this.cartao,
     usuario: "cmpm"
   }
-
-
+  
   httpOptions = {
-    headers: new HttpHeaders({
-      'Content-Type': 'application/json',
-      'Authorization': 'my-auth-token'
+    headers: ({
+      'Content-Type': 'application/json; charset=UTF-8'
     })
   }
 
@@ -34,17 +32,14 @@ export class FormNovoCartaoComponent implements OnInit {
   }
 
   criaCartao(cartao) {
-    console.log(cartao);
-
-    // parte debaixo está pronta, só descomentar quando for pra testar a parte de GET e POST:
+    //  console.log(cartao)
     this.http
-      .post(`https://ceep.herokuapp.com/cartoes/salvar`, this.cartao, this.httpOptions)
-      .subscribe(() => {
-        console.log('cadastrou!');
-        console.log(this.cartao);
-      });
-
-    return false
+      .post('http://localhost:3000/v1/cartoes', cartao)
+      .subscribe((item) => {
+        //  console.log("item", {id: item, conteudo: cartao.conteudo, cor: "red"})
+        console.log(cartao)
+      })
+     return false
   }
 
   ngOnInit() {

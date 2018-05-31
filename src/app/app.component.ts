@@ -11,8 +11,8 @@ export class AppComponent {
 
   mudaLayout = () => {
     this.isMuralLinhaAtiva = !this.isMuralLinhaAtiva
-  
   }
+  
 }
 
 

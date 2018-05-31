@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { CartaoComponent } from '../cartao/cartao.component';
 import { HttpClient } from '@angular/common/http';
+import { AllService } from '../../services/all.service';
 
 @Component({
   selector: 'app-listagem-mural',
@@ -9,11 +10,13 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ListagemMuralComponent implements OnInit {
   @Input() isMuralLinha: Boolean;
+
+  allService: AllService;
   cartoes: CartaoComponent[] = [];
   termoBusca: String; // isso aqui só vai usar quando for implemntar a busca
   http: HttpClient;
 
-  constructor(http: HttpClient) {
+  constructor(http: HttpClient, allService: AllService) {
     this.http = http;
     this.buscarCartoes()
   }
@@ -24,9 +27,11 @@ export class ListagemMuralComponent implements OnInit {
 
   buscarCartoes() {
     this.http
-      .jsonp('https://ceep.herokuapp.com/cartoes/carregar?usuario=cmpm', 'callback')
+      .get('http://localhost:3000/v1/cartoes')
       .subscribe((cartoesServidor: CartaoComponent[]) => {
-        this.cartoes = cartoesServidor.cartoes
+        for(let cartao of cartoesServidor){
+          this.cartoes.push(cartao)
+        }
       });
   }
 
