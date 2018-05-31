@@ -11,7 +11,7 @@ import { AllService } from '../../services/all.service';
 export class OpcoesDaPaginaComponent implements OnInit {
 
   @Input() onClickBtnMudaLayout
-  
+
   iconLinha: String = "fa-list-ul"
   iconBloco: String = "fa-th"
   textoMudaLayout = this.iconLinha
@@ -35,7 +35,7 @@ export class OpcoesDaPaginaComponent implements OnInit {
         this.ajudas = item.instrucoes;
       });
   }
-  
+
   mudaTexto() {
     if (document.querySelector('#icone').classList.contains(this.iconLinha.toString())) {
       this.textoMudaLayout = this.iconBloco.toString()
