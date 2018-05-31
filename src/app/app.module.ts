@@ -9,7 +9,9 @@ import { ListagemMuralComponent } from './components/listagem-mural/listagem-mur
 import { OpcoesDoCartaoComponent } from './components/opcoes-do-cartao/opcoes-do-cartao.component';
 import { CartaoComponent } from './components/cartao/cartao.component';
 import { NgxPopper } from 'angular-popper';
-import { AllService} from './services/all.service'
+import { AllService} from './services/all.service';
+import { BuscaPipe } from './pipes/busca.pipe'
+import { FormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -19,14 +21,16 @@ import { AllService} from './services/all.service'
     FormNovoCartaoComponent,
     ListagemMuralComponent,
     OpcoesDoCartaoComponent,
-    CartaoComponent
+    CartaoComponent,
+    BuscaPipe
   ],
   imports: [
     BrowserModule,
     NgbModule.forRoot(),
     HttpClientJsonpModule,
     HttpClientModule,
-    NgxPopper
+    NgxPopper,
+    FormsModule 
   ],
   providers: [],
   bootstrap: [AppComponent]

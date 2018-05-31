@@ -1,8 +1,10 @@
-<section class="container mural" style="font-size: 1.3rem;" [ngClass]="{'mural--linha':isMuralLinha}">
 
-  <div *ngFor="let cartao of cartoes"> <!-- organziar essa div, to usando pra replicar os cards\-->
-    <app-cartao [conteudo]="cartao.conteudo">
-      <!-- <app-opcoes-do-cartao></app-opcoes-do-cartao> -->
+<div class="row container">
+  <input type="text" placeholder="Busca" id="busca" class="opcoesDaPagina-opcao" [(ngModel)]="termoBusca">
+</div>
+<section class="container mural" style="font-size: 1.3rem;" [ngClass]="{'mural--linha':isMuralLinha}">
+  <div >
+    <app-cartao [conteudo]="cartao.conteudo" *ngFor="let cartao of cartoes | busca:termoBusca">
     </app-cartao>
   </div>
 
