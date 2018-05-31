@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CartaoComponent } from '../cartao/cartao.component';
 
 @Component({
@@ -7,28 +7,47 @@ import { CartaoComponent } from '../cartao/cartao.component';
   templateUrl: './form-novo-cartao.component.html'
 })
 export class FormNovoCartaoComponent implements OnInit {
+
   http: HttpClient;
+
+  infosDoMural = {
+    cartoes: this.cartao,
+    usuario: "cmpm"
+  }
+
+
   cartao: CartaoComponent = {
     id: '',
     conteudo: '',
     corCartao: ''
   };
 
+  httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type': 'application/json',
+      'Authorization': 'my-auth-token'
+    })
+  }
+
   constructor(http: HttpClient) {
     this.http = http;
   }
 
-  criaCartao() {
-    console.log(this.cartao);
+  criaCartao(cartao) {
+    console.log(cartao);
+
     // parte debaixo está pronta, só descomentar quando for pra testar a parte de GET e POST:
-    // this.http
-    //   .post(`https://ceep.herokuapp.com/cartoes/salvar`, this.cartao)
-    //   .subscribe(() => {
-    //     console.log('cadastrou!');
-    //     console.log(this.cartao);
-    //   });
+    this.http
+      .post(`https://ceep.herokuapp.com/cartoes/salvar`, this.cartao, this.httpOptions)
+      .subscribe(() => {
+        console.log('cadastrou!');
+        console.log(this.cartao);
+      });
+
+    return false
   }
 
   ngOnInit() {
   }
+
 }

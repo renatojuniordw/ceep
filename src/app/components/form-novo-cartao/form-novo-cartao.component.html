@@ -2,7 +2,7 @@
     <textarea class="formNovoCartao-conteudo" name="formNovoCartao-conteudo" placeholder="Digite aqui"></textarea>
     <input class="formNovoCartao-salvar" type="submit" value="Salvar">
 </form>-->
-<form class="formNovoCartao" (submit)="criaCartao()">
+<form class="formNovoCartao" (submit)="criaCartao(cartao)">
   <textarea class="formNovoCartao-conteudo" rows="3" name="formNovoCartao-conteudo" placeholder="Digite aqui"
     #textarea (input)="cartao.conteudo = textarea.value"
     (input)="cartao.corCartao = '#EBEF40'"></textarea>
