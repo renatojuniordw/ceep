@@ -1,6 +1,6 @@
 .botaoSync {
 	line-height: 0;
-	border-radius: 50%;
+	border-radius: 2px;
 	color: white;
 }
 
@@ -25,5 +25,5 @@
 }
 
 .botaoSync--sincronizado {
-	background: #ee937d;
+	background: #ff7900;
 }

@@ -32,7 +32,7 @@ export class OpcoesDaPaginaComponent implements OnInit {
   carregarAjudas() {
     this.serviceAll.getAjuda()
       .subscribe((item: Object) => {
-        this.ajudas = item.instrucoes;
+     this.ajudas = item.instrucoes;
       });
   }
 

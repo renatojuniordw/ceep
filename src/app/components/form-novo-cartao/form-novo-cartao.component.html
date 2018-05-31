@@ -1,5 +1,7 @@
 <form class="formNovoCartao" (submit)="criaCartao(cartao)">
   <textarea class="formNovoCartao-conteudo" rows="3" name="formNovoCartao-conteudo" placeholder="Digite aqui"
-    #textarea (input)="cartao.conteudo = textarea.value"></textarea>
+  #textarea (input)="cartao.conteudo = textarea.value"></textarea>
+  <textarea class="formNovoCartao-conteudo" rows="3" name="formNovoCartao-conteudo" placeholder="Cadastre uma nova nota"
+    #textarea (input)="cartao.conteudo = textarea.value" ></textarea>
   <button type="submit" class="formNovoCartao-salvar">Salvar</button>
 </form>
