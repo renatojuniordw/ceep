@@ -1,7 +1,5 @@
-import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, Input } from '@angular/core';
-
 
 @Component({
   selector: 'app-opcoes-da-pagina',
@@ -10,7 +8,11 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class OpcoesDaPaginaComponent implements OnInit {
 
-  textoMudaLayout = "Linhas";
+  iconLinha: String = "fa-list-ul"
+  iconBloco: String = "fa-th"
+  
+  textoMudaLayout = this.iconLinha
+  
   httpClient: HttpClient
   @Input() onClickBtnMudaLayout
 
@@ -34,12 +36,14 @@ export class OpcoesDaPaginaComponent implements OnInit {
         this.ajudas = item.instrucoes
       })
   }
+  
   mudaTexto() {
-    if (this.textoMudaLayout == 'Blocos') {
-      this.textoMudaLayout = 'Linhas'
-    } else {
-      this.textoMudaLayout = 'Blocos'
+    if (document.querySelector('#icone').classList.contains(this.iconLinha.toString())) {
+      this.textoMudaLayout = this.iconBloco.toString()
+    } else if(document.querySelector('#icone').classList.contains(this.iconBloco.toString())) {
+      this.textoMudaLayout = this.iconLinha.toString()
     }
   }
+
 
 }
