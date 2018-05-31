@@ -1,7 +1,7 @@
 .formNovoCartao {
 	font-size: 1rem;
 	margin: 0 auto;
-	background: rgba(0,0,0,.15);
+	background:#ff7900;
 	padding-top: 1.5em;
 	padding-bottom: 1em;
 	position: relative;
@@ -35,8 +35,8 @@
 	display: block;
 	margin: 1em auto 0;
 	padding: .35em 1em;
-	background:#ee937d;
-	color: #fff;
+	background:#e7e7e7;
+	color: #ff7900;
 	text-transform: uppercase;
 }
 

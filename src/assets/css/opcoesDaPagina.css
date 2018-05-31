@@ -19,7 +19,7 @@
 	padding: .5em;
 	max-width: 4.5em;
 	border: none;
-	background:#ee937d;
+	background:#ff7900;
 	color: white;
 	text-transform: uppercase;
 	
@@ -39,8 +39,8 @@
 .btn-group>.btn-group:not(:last-child)>.btn, .btn-group>.btn:not(:last-child):not(.dropdown-toggle) {
     border-top-right-radius: 5px !important;
     border-bottom-right-radius: 5px !important;
-    background: #ee937d;
-    border-color: #ee937d;
+    background: #ff7900;
+    border-color: #ff7900;
 }
 
 
