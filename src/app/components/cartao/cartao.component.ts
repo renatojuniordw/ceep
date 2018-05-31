@@ -9,4 +9,5 @@ export class CartaoComponent extends ListagemMuralComponent {
   _id = '';
   cor = '#EBEF40';
   @Input() conteudo;
+  @Input() cartaoLocal;
 }
