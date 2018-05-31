@@ -19,8 +19,10 @@
 	padding: .5em;
 	max-width: 4.5em;
 	border: none;
-	background: rgba(185, 130, 130, 0.25);
+	background:#ee937d;
 	color: white;
+	text-transform: uppercase;
+	
 }
 
 .opcoesDaPagina-opcao#busca {
@@ -28,6 +30,7 @@
 	padding: .2em;
 	width: 100%;
 	max-width: 200px;
+	border: 1px solid #d9d9d9;
 }
 
 .opcoesDaPagina-opcao#mudaLayout {
@@ -40,4 +43,12 @@
 		display: inline-block;
 	}
 
+}
+
+
+@media (min-width: 992px){
+.opcoesDaPagina {
+	min-width: 400px;
+	justify-content: space-between;
+}
 }

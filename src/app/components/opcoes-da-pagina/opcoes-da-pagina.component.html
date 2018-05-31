@@ -6,27 +6,39 @@
 </svg>
 
 <div class="opcoesDaPagina">
+    <div class="d-flex">
   <input type="search" placeholder="Busca" id="busca" class="opcoesDaPagina-opcao">
-  <button id="btnMudaLayout" (click)="mudaTexto()" (click)="onClickBtnMudaLayout()" class="opcoesDaPagina-opcao opcoesDaPagina-botao">
-    {{textoMudaLayout}}
-  </button>
-  <!-- <button id="btnAjuda" class="opcoesDaPagina-opcao opcoesDaPagina-botao">
+</div> 
+
+  <div class="d-flex">
+    <button id="btnMudaLayout" (click)="mudaTexto()" (click)="onClickBtnMudaLayout()" class="opcoesDaPagina-opcao opcoesDaPagina-botao">
+      <!-- {{textoMudaLayout}} -->
+
+
+      <i class="fas {{textoMudaLayout}}" id="icone"></i>
+      <!-- <i class="fas fa-headphones"></i>
+      <i class="fas fa-list-ul"></i>
+      <i class="fas fa-headphones"></i> -->
+      
+     
+    </button>
+    <!-- <button id="btnAjuda" class="opcoesDaPagina-opcao opcoesDaPagina-botao">
     ?
   </button> -->
 
-  <div class="dropdown">
-    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true"
-      aria-expanded="false">
-      ?
-    </button>
-    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-      <a class="dropdown-item" href="#" *ngFor="let ajuda of ajudas">{{ ajuda.conteudo }}</a>
+    <div class="dropdown  ml-3">
+      <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        ?
+      </button>
+      <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+        <a class="dropdown-item" href="#" *ngFor="let ajuda of ajudas">{{ ajuda.conteudo }}</a>
+      </div>
     </div>
-  </div>
 
-  <button id="btnSync" class="opcoesDaPagina-opcao opcoesDaPagina-botao botaoSync botaoSync--sincronizado">
-    <svg class="botaoSync-icone">
-      <use xlink:href="#iconeSincronizar"></use>
-    </svg>
-  </button>
+    <button id="btnSync" class="opcoesDaPagina-opcao opcoesDaPagina-botao botaoSync botaoSync--sincronizado ml-3">
+      <svg class="botaoSync-icone">
+        <use xlink:href="#iconeSincronizar"></use>
+      </svg>
+    </button>
+  </div>
 </div>

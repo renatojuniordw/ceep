@@ -1,4 +1,3 @@
-
 import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 
@@ -9,14 +8,18 @@ import { HttpClient } from '@angular/common/http';
 })
 
 export class OpcoesDaPaginaComponent implements OnInit {
-  http: HttpClient;
-  textoMudaLayout = 'Linhas';
-  @Input() onClickBtnMudaLayout;
 
-  ajudas: Array<Object> = [];
+  @Input() onClickBtnMudaLayout
+  
+  iconLinha: String = "fa-list-ul"
+  iconBloco: String = "fa-th"
+  textoMudaLayout = this.iconLinha
+
+  httpClient: HttpClient
+  ajudas: Array<Object> = [{}]
 
   constructor(http: HttpClient) {
-    this.http = http;
+    this.httpClient = http;
     this.carregarAjudas();
   }
 
@@ -24,16 +27,18 @@ export class OpcoesDaPaginaComponent implements OnInit {
   }
 
   carregarAjudas() {
-    this.http
+    this.httpClient
       .get('http://ceep.herokuapp.com/cartoes/instrucoes')
       .subscribe((item: Object) => {
         this.ajudas = item.instrucoes;
       });
   }
-
   mudaTexto() {
-    return this.textoMudaLayout === 'Blocos'
-      ? this.textoMudaLayout = 'Linhas'
-      : this.textoMudaLayout = 'Blocos';
+    if (document.querySelector('#icone').classList.contains(this.iconLinha.toString())) {
+      this.textoMudaLayout = this.iconBloco.toString()
+    } else if (document.querySelector('#icone').classList.contains(this.iconBloco.toString())) {
+      this.textoMudaLayout = this.iconLinha.toString()
+    }
   }
+
 }
