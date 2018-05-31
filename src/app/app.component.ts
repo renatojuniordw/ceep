@@ -10,9 +10,8 @@ export class AppComponent {
   isMuralLinhaAtiva = false;
 
   mudaLayout = () => {
-    this.isMuralLinhaAtiva = !this.isMuralLinhaAtiva
+    this.isMuralLinhaAtiva = !this.isMuralLinhaAtiva;
   }
-  
 }
 
 

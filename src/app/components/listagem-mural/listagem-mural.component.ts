@@ -18,9 +18,8 @@ export class ListagemMuralComponent implements OnInit {
 
   constructor(http: HttpClient, allService: AllService) {
     this.http = http;
-    this.buscarCartoes()
+    this.buscarCartoes();
   }
-
 
   ngOnInit() {
   }
@@ -29,11 +28,26 @@ export class ListagemMuralComponent implements OnInit {
     this.http
       .get('http://localhost:3000/v1/cartoes')
       .subscribe((cartoesServidor: CartaoComponent[]) => {
-        for(let cartao of cartoesServidor){
-          this.cartoes.push(cartao)
+        for (const cartao of cartoesServidor) {
+          this.cartoes.push(cartao);
         }
       });
   }
 
-  remover() { }
+  mudarCor(cartao) {
+    console.log('cor');
+    console.log(cartao);
+  }
+
+  salvar() { }
+
+  remover(cartaoPRemover: CartaoComponent) {
+    console.log('deletou');
+    console.log(cartaoPRemover);
+    // this.http
+    //   .delete(`http://localhost:3000/v1/fotos/${cartaoPRemover.id}`)
+    //   .subscribe(() => {
+    //     this.cartoes = this.cartoes.filter(cartao => cartaoPRemover.id !== cartao.id);
+    //   });
+  }
 }

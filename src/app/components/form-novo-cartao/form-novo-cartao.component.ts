@@ -7,25 +7,24 @@ import { CartaoComponent } from '../cartao/cartao.component';
   templateUrl: './form-novo-cartao.component.html'
 })
 export class FormNovoCartaoComponent implements OnInit {
-
-  http: HttpClient
+  http: HttpClient;
 
   cartao: CartaoComponent = {
     _id: '',
     cor: '#EBEF40',
     conteudo: ''
   };
-  
+
   infosDoMural = {
     cartoes: this.cartao,
-    usuario: "cmpm"
-  }
-  
+    usuario: 'cmpm'
+  };
+
   httpOptions = {
     headers: ({
       'Content-Type': 'application/json; charset=UTF-8'
     })
-  }
+  };
 
   constructor(http: HttpClient) {
     this.http = http;
@@ -37,12 +36,13 @@ export class FormNovoCartaoComponent implements OnInit {
       .post('http://localhost:3000/v1/cartoes', cartao)
       .subscribe((item) => {
         //  console.log("item", {id: item, conteudo: cartao.conteudo, cor: "red"})
-        console.log(cartao)
-      })
-     return false
+        console.log('cadastrou!');
+        console.log(this.cartao);
+      });
+
+    return false;
   }
 
   ngOnInit() {
   }
-
 }
