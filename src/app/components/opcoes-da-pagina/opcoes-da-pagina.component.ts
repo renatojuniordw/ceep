@@ -7,14 +7,14 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./opcoes-da-pagina.component.css']
 })
 export class OpcoesDaPaginaComponent implements OnInit {
-  httpClient: HttpClient;
+  http: HttpClient;
   textoMudaLayout = 'Linhas';
   @Input() onClickBtnMudaLayout;
 
   ajudas: Array<Object> = [];
 
-  constructor(private http: HttpClient) {
-    this.httpClient = http;
+  constructor(http: HttpClient) {
+    this.http = http;
     this.carregarAjudas();
   }
 
@@ -22,7 +22,7 @@ export class OpcoesDaPaginaComponent implements OnInit {
   }
 
   carregarAjudas() {
-    this.httpClient
+    this.http
       .get('http://ceep.herokuapp.com/cartoes/instrucoes')
       .subscribe((item: Object) => {
         this.ajudas = item.instrucoes;

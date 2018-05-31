@@ -7,7 +7,7 @@ import { CartaoComponent } from '../cartao/cartao.component';
   templateUrl: './form-novo-cartao.component.html'
 })
 export class FormNovoCartaoComponent implements OnInit {
-  httpClient: HttpClient;
+  http: HttpClient;
   cartao: CartaoComponent = {
     id: '',
     conteudo: '',
@@ -15,12 +15,13 @@ export class FormNovoCartaoComponent implements OnInit {
   };
 
   constructor(http: HttpClient) {
-    this.httpClient = http;
+    this.http = http;
   }
 
   criaCartao() {
     console.log(this.cartao);
-    // this.httpClient
+    // parte debaixo está pronta, só descomentar quando for pra testar a parte de GET e POST:
+    // this.http
     //   .post(`https://ceep.herokuapp.com/cartoes/salvar`, this.cartao)
     //   .subscribe(() => {
     //     console.log('cadastrou!');

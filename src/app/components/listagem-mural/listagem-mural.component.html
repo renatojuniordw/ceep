@@ -1,4 +1,9 @@
-<section class="container mural" [ngClass]="{'mural--linha':isMuralLinha}" style="font-size: 1.3rem;">
-  <!-- só pra testes -->
-  <app-cartao></app-cartao>
+<section class="container mural" style="font-size: 1.3rem;" [ngClass]="{'mural--linha':isMuralLinha}">
+
+  <div *ngFor="let cartao of cartoes"> <!-- organziar essa div, to usando pra replicar os cards\-->
+    <app-cartao [conteudo]="cartao.conteudo">
+      <app-opcoes-do-cartao></app-opcoes-do-cartao>
+    </app-cartao>
+  </div>
+
 </section>
