@@ -10,17 +10,17 @@ export class FormNovoCartaoComponent implements OnInit {
 
   http: HttpClient;
 
-  infosDoMural = {
-    cartoes: this.cartao,
-    usuario: "cmpm"
-  }
-
-
   cartao: CartaoComponent = {
     id: '',
     conteudo: '',
     corCartao: ''
   };
+
+  infosDoMural = {
+    cartoes: this.cartao,
+    usuario: "cmpm"
+  }
+
 
   httpOptions = {
     headers: new HttpHeaders({
