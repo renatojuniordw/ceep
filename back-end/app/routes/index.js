@@ -5,12 +5,12 @@ module.exports = function (app) {
 
   app.route('/v1/cartoes')
     .post(api.adiciona)
-    .get(api.lista);
+    .get(api.lista)
+    .put(api.atualiza);
 
   app.route('/v1/cartoes/:cartaoId')
     .delete(api.remove)
-    .get(api.busca)
-    .put(api.atualiza);
+    .get(api.busca);
 
   app.get('/v1/grupos', api.listaGrupos)
   app.get('/v1/cartoes/grupo/:grupoId', api.listaPorGrupo);

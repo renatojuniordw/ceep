@@ -28,19 +28,20 @@ export class ListagemMuralComponent implements OnInit {
     for (const cartao of this.cartoes) {
       if (cartao._id === cartaoLocalId) {
         cartao.cor = cor;
+
+        console.log(cartao.conteudo);
         this.allService.putCartao(cartaoLocalId, cartao);
       }
     }
   }
 
-  // putCartoes(idCartao, cartao) {
-  //   this.http.put(`http://localhost:3000/v1/cartoes/${idCartao}`, cartao)
-  //     .subscribe(() => {
-  //       console.log(cartao, cartao);
-  //     })
-  // }
-
-  salvar() { }
+  salvar(cartao, dado) {
+    // console.log(cartao.conteudo)
+    // console.log(dado.textContent)
+    // console.log(cartao._id)
+    cartao.conteudo = dado.textContent;
+    this.allService.putCartao(cartao._id, cartao);
+  }
 
   remover(cartaoPRemover: CartaoComponent) {
     if (confirm('Excluir cartão selecionado?')) {

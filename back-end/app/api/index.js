@@ -21,8 +21,8 @@ api.busca = function(req, res) {
 };
 
 api.atualiza = function(req, res) {
-    console.log('Parâmetro recebido:' + req.params.fotoId);
-    db.update({_id : req.params.cartaoId }, req.body, function(err, numReplaced) {
+    console.log('Parâmetro recebido:' + req.body._id);
+    db.update({_id : req.body._id }, req.body, function(err, numReplaced) {
         if (err) return console.log(err);
         if(numReplaced) res.status(200).end();
         res.status(500).end();
