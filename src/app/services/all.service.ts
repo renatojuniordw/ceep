@@ -10,7 +10,7 @@ import { Key } from 'protractor';
 export class AllService implements OnInit {
 
   httpClient: HttpClient;
-  cartoes: CartaoComponent[] = [];
+  cartoesService: CartaoComponent[] = [];
   ajudas = []
 
   constructor(private http: HttpClient) {
@@ -39,12 +39,20 @@ export class AllService implements OnInit {
       });
   }
 
+  putCartao(idCartao, cartao) {
+    return this.httpClient.put(`http://localhost:3000/v1/cartoes/${idCartao}`, cartao)
+      .subscribe((cartao) => {
+        console.log(cartao, cor)
+      });
+    // /:cartaoId'
+  }
+
   getCartoesHttp() {
     return this.httpClient.get('http://localhost:3000/v1/cartoes')
       .subscribe((cartoesServidor: CartaoComponent[]) => {
         localStorage.setItem("CartoesLocal", JSON.stringify(cartoesServidor))
         for (const cartao of cartoesServidor) {
-          this.cartoes.push(cartao);
+          this.cartoesService.push(cartao);
         }
       });
   }
@@ -59,10 +67,10 @@ export class AllService implements OnInit {
   }
 
   getCartoesLocal() {
-    this.cartoes = []
+    this.cartoesService = []
     const cartoesLocais = JSON.parse(localStorage.getItem("CartoesLocal"))
     for (const cartaoLocal of cartoesLocais) {
-      this.cartoes.push(cartaoLocal)
+      this.cartoesService.push(cartaoLocal)
     }
   }
 }
