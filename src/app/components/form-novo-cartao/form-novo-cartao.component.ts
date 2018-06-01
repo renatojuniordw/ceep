@@ -36,8 +36,8 @@ export class FormNovoCartaoComponent implements OnInit {
       .post('http://localhost:3000/v1/cartoes', cartao)
       .subscribe((item) => {
         //  console.log("item", {id: item, conteudo: cartao.conteudo, cor: "red"})
-        console.log('cadastrou!');
-        console.log(this.cartao);
+        // console.log('cadastrou!');
+        console.log(cartao);
       });
 
     return false;
