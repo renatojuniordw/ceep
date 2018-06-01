@@ -40,8 +40,7 @@ export class FormNovoCartaoComponent implements OnInit {
         // console.log('cadastrou!');
         console.log(cartao);
       });
-
-    // return false;
+    window.location.reload(); // gambiarra, procurar como refresh na lista
   }
 
   ngOnInit() {

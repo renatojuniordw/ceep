@@ -9,7 +9,7 @@ api.adiciona = function(req, res) {
         if(err) return console.log(err);
         console.log('Adicionado com sucesso: ' + newDoc._id);
         res.json(newDoc._id);
-    });  
+    });
 };
 
 api.busca = function(req, res) {
@@ -28,7 +28,7 @@ api.atualiza = function(req, res) {
         res.status(500).end();
         console.log('Atualizado com sucesso: ' + req.body._id);
         res.status(200).end();
-    });  
+    });
 };
 
 api.lista = function(req, res) {
@@ -51,7 +51,7 @@ api.listaPorGrupo = function(req, res) {
 
 api.remove = function(req, res) {
 
-    db.remove({ _id: req.params.fotoId }, {}, function (err, numRemoved) {
+    db.remove({ _id: req.params.cartaoId }, {}, function (err, numRemoved) {
         if (err) return console.log(err);
         console.log('removido com sucesso');
         if(numRemoved) res.status(200).end();
@@ -63,19 +63,19 @@ api.listaGrupos = function(req, res) {
 
     res.json([
         {
-            _id: 1, 
+            _id: 1,
             nome: 'esporte'
-        }, 
-        { 
-            _id: 2, 
-            nome: 'lugares', 
-        }, 
-        { 
-            _id: 3, 
+        },
+        {
+            _id: 2,
+            nome: 'lugares',
+        },
+        {
+            _id: 3,
             nome: 'animais'
         }
     ]);
-        
+
 };
 
 
