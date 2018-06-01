@@ -19,22 +19,14 @@ export class OpcoesDaPaginaComponent implements OnInit {
   termoBusca;
 
   httpClient: HttpClient
-  ajudas: Array<Object> = [{}]
+  ajudas = [];
 
   constructor(private http: HttpClient, private serviceAll: AllService) {
     this.httpClient = http;
-    this.carregarAjudas();
-    localStorage.setItem("teste", 'Value');
+    this.ajudas = this.serviceAll.ajudas;
   }
 
   ngOnInit() {
-  }
-
-  carregarAjudas() {
-    this.serviceAll.getAjuda()
-      .subscribe((item: Object) => {
-     this.ajudas = item.instrucoes;
-      });
   }
 
   mudaTexto() {
@@ -45,10 +37,8 @@ export class OpcoesDaPaginaComponent implements OnInit {
     }
   }
 
-  SincLocal(){
-    this.serviceAll.getCartoes();
-    console.log("Sinc")
-    console.log(localStorage.getItem("Cartoes-Serve"))
+  SincLocal() {
+    this.serviceAll.getCartoesHttp();
   }
 
 }
