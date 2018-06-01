@@ -40,9 +40,9 @@ export class AllService implements OnInit {
   }
 
   putCartao(idCartao, cartao) {
-    return this.httpClient.put(`http://localhost:3000/v1/cartoes/${idCartao}`, cartao)
-      .subscribe((cartao) => {
-        console.log(cartao, cor)
+    return this.httpClient.put(`http://localhost:3000/v1/cartoes/`, cartao)
+      .subscribe((data) => {
+        console.log(data);
       });
     // /:cartaoId'
   }

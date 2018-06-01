@@ -1,5 +1,5 @@
 <!-- <article id="cartao_{{contId}}" class="cartao" tabindex="0"> -->
-<article id="cartao_{{cartaoLocalId}}" class="cartao" tabindex="0" [style.background]="cor">
+<article id="cartao_{{cartaoLocalId}}" class="cartao" tabindex="0" [style.background]="cartaoLocal.cor">
   <!-- opções do cartão -->
   <div class="opcoesDoCartao" #cartao (click)="getId(cartaoLocal)">
     <!-- lixeira -->
@@ -11,7 +11,7 @@
 
     <!-- cores -->
     <input type="radio" name="corDoCartao{{cartaoLocalId}}" value="#EBEF40" id="corPadrão-cartao{{cartaoLocalId}}" class="opcoesDoCartao-radioTipo"
-      checked="" #inputAmarelo (input)="cor = inputAmarelo.value; mudarCor(cartaoLocalId, cor)">
+      #inputAmarelo (input)="cor = inputAmarelo.value; mudarCor(cartaoLocalId, cor)">
     <label for="corPadrão-cartao{{cartaoLocalId}}" class="opcoesDoCartao-tipo opcoesDoCartao-opcao" style="color: #EBEF40;" tabindex="0">
       Amarelo
     </label>
@@ -36,5 +36,5 @@
   </div>
   <!-- /opções do cartão -->
 
-  <p class="cartao-conteudo" contenteditable="" tabindex="0">{{cartaoLocal.conteudo}}</p>
+  <p class="cartao-conteudo" contenteditable="" tabindex="0" #dadoCartao (focus)="salvar(cartaoLocal,dadoCartao)">{{cartaoLocal.conteudo}}</p>
 </article>
