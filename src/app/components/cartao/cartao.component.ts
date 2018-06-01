@@ -6,8 +6,15 @@ import { ListagemMuralComponent } from '../listagem-mural/listagem-mural.compone
   templateUrl: './cartao.component.html'
 })
 export class CartaoComponent extends ListagemMuralComponent {
-  _id;
-  cor = '#EBEF40';
+  _id = '';
+  cor = '';
   @Input() conteudo;
   @Input() cartaoLocal: ''; // verificar se é ok deixar assim
+  cartaoLocalId = '';
+
+  getId(cartao){
+    // console.log(cartao)
+    this.cartaoLocalId = cartao._id
+    // console.log(this.cartaoLocalId)
+  }
 }

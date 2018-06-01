@@ -12,20 +12,33 @@ export class ListagemMuralComponent implements OnInit {
   @Input() isMuralLinha: Boolean;
 
   cartoes: CartaoComponent[] = [];
-  termoBusca: String; 
+  termoBusca: String;
 
   constructor(private http: HttpClient, private allService: AllService) {
-    this.http = http;
-    this.cartoes = this.allService.cartoes
+    // this.http = http;
+    this.cartoes = this.allService.cartoesService;
   }
 
   ngOnInit() {
   }
 
-  mudarCor(cartao) {
-    console.log('cor');
-    console.log(cartao);
+  mudarCor(cartaoLocalId, cor) {
+    console.log(cartaoLocalId, cor);
+    // console.log(JSON.S(this.cartoes));
+    for (const cartao of this.cartoes) {
+      if (cartao._id === cartaoLocalId) {
+        cartao.cor = cor;
+        this.allService.putCartao(cartaoLocalId, cartao);
+      }
+    }
   }
+
+  // putCartoes(idCartao, cartao) {
+  //   this.http.put(`http://localhost:3000/v1/cartoes/${idCartao}`, cartao)
+  //     .subscribe(() => {
+  //       console.log(cartao, cartao);
+  //     })
+  // }
 
   salvar() { }
 
