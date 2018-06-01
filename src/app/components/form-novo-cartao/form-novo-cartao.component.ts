@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { CartaoComponent } from '../cartao/cartao.component';
+import { AllService } from '../../services/all.service';
 
 @Component({
   selector: 'app-form-novo-cartao',
@@ -26,7 +27,7 @@ export class FormNovoCartaoComponent implements OnInit {
     })
   };
 
-  constructor(http: HttpClient) {
+  constructor(http: HttpClient, private allService: AllService) {
     this.http = http;
   }
 
@@ -39,8 +40,6 @@ export class FormNovoCartaoComponent implements OnInit {
         // console.log('cadastrou!');
         console.log(cartao);
       });
-
-    // return false; // por hora deixa dar refresh pra inserir na lista
     window.location.reload(); // gambiarra, procurar como refresh na lista
   }
 

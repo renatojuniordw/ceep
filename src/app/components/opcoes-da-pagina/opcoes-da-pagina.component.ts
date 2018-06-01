@@ -7,45 +7,38 @@ import { AllService } from '../../services/all.service';
   templateUrl: './opcoes-da-pagina.component.html',
   styleUrls: ['./opcoes-da-pagina.component.css']
 })
-export class OpcoesDaPaginaComponent implements OnInit {
-  @Input() onClickBtnMudaLayout;
 
-  iconLinha: String = 'fa-list-ul';
-  iconBloco: String = 'fa-th';
-  textoMudaLayout = this.iconLinha;
+export class OpcoesDaPaginaComponent implements OnInit {
+
+  @Input() onClickBtnMudaLayout
+
+  iconLinha: String = "fa-list-ul"
+  iconBloco: String = "fa-th"
+  textoMudaLayout = this.iconLinha
 
   termoBusca;
 
-  httpClient: HttpClient;
-  ajudas: Array<Object> = [{}];
+  httpClient: HttpClient
+  ajudas = [];
 
   constructor(private http: HttpClient, private serviceAll: AllService) {
     this.httpClient = http;
-    this.carregarAjudas();
-    localStorage.setItem('teste', 'Value');
+    this.ajudas = this.serviceAll.ajudas;
   }
 
   ngOnInit() {
   }
 
-  carregarAjudas() {
-    this.serviceAll.getAjuda()
-      .subscribe((item: Object) => {
-     this.ajudas = item.instrucoes;
-      });
-  }
-
   mudaTexto() {
     if (document.querySelector('#icone').classList.contains(this.iconLinha.toString())) {
-      this.textoMudaLayout = this.iconBloco.toString();
+      this.textoMudaLayout = this.iconBloco.toString()
     } else if (document.querySelector('#icone').classList.contains(this.iconBloco.toString())) {
-      this.textoMudaLayout = this.iconLinha.toString();
+      this.textoMudaLayout = this.iconLinha.toString()
     }
   }
 
-  syncLocal() {
-    this.serviceAll.getCartoes();
-    console.log('Sync');
-    console.log(localStorage.getItem('Cartoes-Serve'));
+  SincLocal() {
+    this.serviceAll.getCartoesHttp();
   }
+
 }

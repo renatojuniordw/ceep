@@ -11,29 +11,15 @@ import { AllService } from '../../services/all.service';
 export class ListagemMuralComponent implements OnInit {
   @Input() isMuralLinha: Boolean;
 
-  allService: AllService;
   cartoes: CartaoComponent[] = [];
-  termoBusca: String; // isso aqui só vai usar quando for implemntar a busca
-  http: HttpClient;
+  termoBusca: String; 
 
-  constructor(http: HttpClient, allService: AllService) {
+  constructor(private http: HttpClient, private allService: AllService) {
     this.http = http;
-    this.buscarCartoes();
+    this.cartoes = this.allService.cartoes
   }
 
   ngOnInit() {
-  }
-
-  buscarCartoes() {
-    // this.allService.getCartoes()
-    this.http
-      .get('http://localhost:3000/v1/cartoes')
-      .subscribe((cartoesServidor: CartaoComponent[]) => {
-        for (const cartao of cartoesServidor) {
-          this.cartoes.push(cartao);
-          // console.log(cartao)
-        }
-      });
   }
 
   mudarCor(cartao) {

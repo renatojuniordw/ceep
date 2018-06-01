@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { AllService } from './services/all.service';
 
 @Component({
   selector: 'app-root',
@@ -8,6 +9,9 @@ import { Component } from '@angular/core';
 export class AppComponent {
   title = 'app';
   isMuralLinhaAtiva = false;
+
+  constructor(private serviceAll: AllService) {
+  }
 
   mudaLayout = () => {
     this.isMuralLinhaAtiva = !this.isMuralLinhaAtiva;
