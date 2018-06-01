@@ -25,11 +25,13 @@ export class ListagemMuralComponent implements OnInit {
   }
 
   buscarCartoes() {
+    // this.allService.getCartoes()
     this.http
       .get('http://localhost:3000/v1/cartoes')
       .subscribe((cartoesServidor: CartaoComponent[]) => {
         for (const cartao of cartoesServidor) {
           this.cartoes.push(cartao);
+          // console.log(cartao)
         }
       });
   }

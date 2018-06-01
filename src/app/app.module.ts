@@ -19,7 +19,6 @@ import { FormsModule } from '@angular/forms';
     OpcoesDaPaginaComponent,
     FormNovoCartaoComponent,
     ListagemMuralComponent,
-    OpcoesDoCartaoComponent,
     CartaoComponent,
     BuscaPipe
   ],

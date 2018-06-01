@@ -24,6 +24,7 @@ export class OpcoesDaPaginaComponent implements OnInit {
   constructor(private http: HttpClient, private serviceAll: AllService) {
     this.httpClient = http;
     this.carregarAjudas();
+    localStorage.setItem("teste", 'Value');
   }
 
   ngOnInit() {
@@ -42,6 +43,12 @@ export class OpcoesDaPaginaComponent implements OnInit {
     } else if (document.querySelector('#icone').classList.contains(this.iconBloco.toString())) {
       this.textoMudaLayout = this.iconLinha.toString()
     }
+  }
+
+  SincLocal(){
+    this.serviceAll.getCartoes();
+    console.log("Sinc")
+    console.log(localStorage.getItem("Cartoes-Serve"))
   }
 
 }
