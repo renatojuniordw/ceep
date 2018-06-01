@@ -40,7 +40,8 @@ export class FormNovoCartaoComponent implements OnInit {
         console.log(cartao);
       });
 
-    return false;
+    // return false; // por hora deixa dar refresh pra inserir na lista
+    window.location.reload(); // gambiarra, procurar como refresh na lista
   }
 
   ngOnInit() {

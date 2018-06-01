@@ -1,10 +1,9 @@
-//Testar for na DIV
 <div class="row container">
   <input type="text" placeholder="Busca" id="busca" class="opcoesDaPagina-opcao" [(ngModel)]="termoBusca">
 </div>
 <section class="container mural" style="font-size: 1.3rem;" [ngClass]="{'mural--linha':isMuralLinha}">
   <div>
-    <app-cartao [conteudo]="cartao.conteudo" *ngFor="let cartao of cartoes | busca:termoBusca">
+    <app-cartao *ngFor="let cartao of cartoes | busca:termoBusca" [conteudo]="cartao.conteudo" [cartaoLocal]="cartao">
     </app-cartao>
     <!-- <div *ngFor="let cartao of cartoes">
     <app-cartao [conteudo]="cartao.conteudo" [cartaoLocal]="cartao"></app-cartao> -->

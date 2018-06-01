@@ -44,13 +44,15 @@ export class ListagemMuralComponent implements OnInit {
   salvar() { }
 
   remover(cartaoPRemover: CartaoComponent) {
-    this.http
-      .delete(`http://localhost:3000/v1/cartoes/${cartaoPRemover._id}`)
-      .subscribe(() => {
-        console.log('deletou!');
-        this.cartoes = this.cartoes.filter(cartao => cartaoPRemover._id !== cartao._id);
-        // this.buscarCartoes();
-        window.location.reload(); // gambiarra, procurar como refresh na lista
-      });
+    if (confirm('Excluir cartão selecionado?')) {
+      this.http
+        .delete(`http://localhost:3000/v1/cartoes/${cartaoPRemover._id}`)
+        .subscribe(() => {
+          console.log('deletou!');
+          this.cartoes = this.cartoes.filter(cartao => cartaoPRemover._id !== cartao._id);
+          // this.buscarCartoes();
+          window.location.reload(); // gambiarra, procurar como refresh na lista
+        });
+    }
   }
 }
