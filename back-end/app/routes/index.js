@@ -1,21 +1,21 @@
 var api = require('../api'),
-path = require('path');
+  path = require('path');
 
-module.exports  = function(app) {
+module.exports = function (app) {
 
-app.route('/v1/cartoes')
+  app.route('/v1/cartoes')
     .post(api.adiciona)
-    .get(api.lista);
-
-app.route('/v1/cartoes/:cartaoId')
-    .delete(api.remove)
-    .get(api.busca)
+    .get(api.lista)
     .put(api.atualiza);
 
-app.get('/v1/grupos', api.listaGrupos)
-app.get('/v1/cartoes/grupo/:grupoId', api.listaPorGrupo);
-    
-app.all('/*', function(req, res) {
+  app.route('/v1/cartoes/:cartaoId')
+    .delete(api.remove)
+    .get(api.busca);
+
+  app.get('/v1/grupos', api.listaGrupos)
+  app.get('/v1/cartoes/grupo/:grupoId', api.listaPorGrupo);
+
+  app.all('/*', function (req, res) {
     res.sendFile(path.join(app.get('clientPath'), 'index.html'));
-});
+  });
 };

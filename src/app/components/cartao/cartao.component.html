@@ -1,5 +1,40 @@
-<!-- <article style="background-color: ${cor}" id="cartao_${contador}" class="cartao" tabindex="0"> -->
-<article id="cartao_${contador}" class="cartao" tabindex="0">
-  <app-opcoes-do-cartao></app-opcoes-do-cartao>
-  <p class="cartao-conteudo" contenteditable="" tabindex="0">{{conteudo}}</p>
+<!-- <article id="cartao_{{contId}}" class="cartao" tabindex="0"> -->
+<article id="cartao_{{cartaoLocalId}}" class="cartao" tabindex="0" [style.background]="cartaoLocal.cor">
+  <!-- opções do cartão -->
+  <div class="opcoesDoCartao" #cartao (click)="getId(cartaoLocal)">
+    <!-- lixeira -->
+    <button class="opcoesDoCartao-remove opcoesDoCartao-opcao" tabindex="0" (click)="remover(cartaoLocal)">
+      <svg>
+        <use xlink:href="#iconeRemover"></use>
+      </svg>
+    </button>
+
+    <!-- cores -->
+    <input type="radio" name="corDoCartao{{cartaoLocalId}}" value="#EBEF40" id="corPadrão-cartao{{cartaoLocalId}}" class="opcoesDoCartao-radioTipo"
+      #inputAmarelo (input)="cor = inputAmarelo.value; mudarCor(cartaoLocalId, cor)">
+    <label for="corPadrão-cartao{{cartaoLocalId}}" class="opcoesDoCartao-tipo opcoesDoCartao-opcao" style="color: #EBEF40;" tabindex="0">
+      Amarelo
+    </label>
+
+    <input type="radio" name="corDoCartao{{cartaoLocalId}}" value="#F05450" id="corImportante-cartao{{cartaoLocalId}}" class="opcoesDoCartao-radioTipo"
+      #inputVermelho (input)="cor = inputVermelho.value; mudarCor(cartaoLocalId, cor)">
+    <label for="corImportante-cartao{{cartaoLocalId}}" class="opcoesDoCartao-tipo opcoesDoCartao-opcao" style="color: #F05450;" tabindex="0">
+      Vermelho
+    </label>
+
+    <input  type="radio" name="corDoCartao{{cartaoLocalId}}" value="#92C4EC" id="corTarefa-cartao{{cartaoLocalId}}" class="opcoesDoCartao-radioTipo"
+      #inputAzul (input)="cor = inputAzul.value ; mudarCor(cartaoLocalId, cor)">
+    <label for="corTarefa-cartao{{cartaoLocalId}}" class="opcoesDoCartao-tipo opcoesDoCartao-opcao" style="color: #92C4EC;" tabindex="0">
+      Azul
+    </label>
+
+    <input type="radio" name="corDoCartao{{cartaoLocalId}}" value="#76EF40" id="corInspiração-cartao{{cartaoLocalId}}" class="opcoesDoCartao-radioTipo"
+      #inputVerde (input)="cor = inputVerde.value; mudarCor(cartaoLocalId, cor)">
+    <label for="corInspiração-cartao{{cartaoLocalId}}" class="opcoesDoCartao-tipo opcoesDoCartao-opcao" style="color: #76EF40;" tabindex="0">
+      Verde
+    </label>
+  </div>
+  <!-- /opções do cartão -->
+
+  <p class="cartao-conteudo" contenteditable="" tabindex="0" #dadoCartao (focus)="salvar(cartaoLocal,dadoCartao)">{{cartaoLocal.conteudo}}</p>
 </article>

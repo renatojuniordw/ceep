@@ -11,29 +11,48 @@ import { AllService } from '../../services/all.service';
 export class ListagemMuralComponent implements OnInit {
   @Input() isMuralLinha: Boolean;
 
-  allService: AllService;
   cartoes: CartaoComponent[] = [];
-  termoBusca: String; // isso aqui só vai usar quando for implemntar a busca
-  http: HttpClient;
+  termoBusca: String;
 
-  constructor(http: HttpClient, allService: AllService) {
-    this.http = http;
-    this.buscarCartoes()
+  constructor(private http: HttpClient, private allService: AllService) {
+    // this.http = http;
+    this.cartoes = this.allService.cartoesService;
   }
-
 
   ngOnInit() {
   }
 
-  buscarCartoes() {
-    this.http
-      .get('http://localhost:3000/v1/cartoes')
-      .subscribe((cartoesServidor: CartaoComponent[]) => {
-        for(let cartao of cartoesServidor){
-          this.cartoes.push(cartao)
-        }
-      });
+  mudarCor(cartaoLocalId, cor) {
+    console.log(cartaoLocalId, cor);
+    // console.log(JSON.S(this.cartoes));
+    for (const cartao of this.cartoes) {
+      if (cartao._id === cartaoLocalId) {
+        cartao.cor = cor;
+
+        console.log(cartao.conteudo);
+        this.allService.putCartao(cartaoLocalId, cartao);
+      }
+    }
   }
 
-  remover() { }
+  salvar(cartao, dado) {
+    // console.log(cartao.conteudo)
+    // console.log(dado.textContent)
+    // console.log(cartao._id)
+    cartao.conteudo = dado.textContent;
+    this.allService.putCartao(cartao._id, cartao);
+  }
+
+  remover(cartaoPRemover: CartaoComponent) {
+    if (confirm('Excluir cartão selecionado?')) {
+      this.http
+        .delete(`http://localhost:3000/v1/cartoes/${cartaoPRemover._id}`)
+        .subscribe(() => {
+          console.log('deletou!');
+          this.cartoes = this.cartoes.filter(cartao => cartaoPRemover._id !== cartao._id);
+          // this.buscarCartoes();
+          window.location.reload(); // gambiarra, procurar como refresh na lista
+        });
+    }
+  }
 }

@@ -7,9 +7,22 @@
 
 .opcoesDaPagina-opcao {
 	font-size: 1em;
-	vertical-align: middle;
-	font-family: "Lucida Grande", "Helvetica", "Arial", sans-serif;
+	font-size: 1.2em;
+    line-height: 1.5;
+    display: block;
+    margin: 0 auto;
+    padding: .5em;
+    max-width: 15em;
+    height: 2.5em;
+    background: #FFF;
+    overflow: hidden;
+    border: none;
+    resize: none;
+    width: 100%;
+    border-radius: 2px;
+    min-height: 30px;
 }
+
 
 .opcoesDaPagina-opcao + .opcoesDaPagina-opcao {
 	margin-left: 1em;
@@ -28,11 +41,10 @@
 
 .opcoesDaPagina-opcao#busca {
 	padding: .2em;
-	width: 100%;
-	max-width: 200px;
-	border: 1px solid #d9d9d9;
+ 	border: 1px solid #d9d9d9;
 	border-radius: 2px;
 }
+
 
 .opcoesDaPagina-opcao#mudaLayout {
   display: none;
@@ -81,8 +93,21 @@ margin-bottom: 0 !important;
 
 @media (min-width: 992px){
 .opcoesDaPagina {
-	min-width: 400px;
+	min-width: 200px;
 	justify-content: space-between;
+}
+input#busca {
+    position: absolute;
+    top: 3%;
+    right: 24%;
 }
 
 }
+@media (max-width: 480px){
+	.opcoesDaPagina-opcao#busca{
+		margin-top:20px;
+		margin-bottom: 20px;
+	}
+
+}
+
